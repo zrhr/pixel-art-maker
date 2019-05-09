@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pixel-Art-Maker</title>
+        <style>
+          .square {
+       width:10px;
+       height:10px;
+       display:block;
+       overflow:hidden;
+       float:left;
+       border:1px silver solid;
+    }
+    .chose
+      {
+        width:30px;
+        height:30px;
+        display:block;
+        overflow:hidden;
+        float:left;
+        border:1px silver solid;
+        /* display: block;
+        width: 76px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        text-align: center;
+        font-size:30px */
+      }
+    .row {
+
+      width:510px;
+    }
+    .pallete{
+      width:19px;
+      height:19px;
+      display:block;
+      float:left;
+      border:1px #000 solid;
+       border-radius: 50%
+    }
+    .container{
+      padding:20px;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .parent {
+  position: relative;
+}
+
+
+
+        </style>
+    </head>
+    <body><div class=parent >
+      <div class="container">
+                </div>
+
+
+
+    <script>
+      var numsqr=10100;
+      var colors= ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];;
+
+      var container=document.querySelector(".container")
+      var row=document.createElement('div')
+      row.className="row"
+
+
+      for(let i=0; i<numsqr; i++)
+      {
+        let square=document.createElement('div')
+        square.className="square"
+        container.appendChild(square);
+      }
+
+      for(let i=0; i<colors.length; i++)
+      {
+        let pallete=document.createElement('div');
+        pallete.className="pallete"
+        pallete.style.backgroundColor=colors[i];
+        container.appendChild(pallete);
+      }
+
+
+      var currentColor="blue";
+      var clickerButton = document.getElementsByClassName("square");
+      var clickerPallete = document.getElementsByClassName("pallete");
+       var onButtonClick = function() {
+
+           this.style.backgroundColor = currentColor;
+           palletechose.style.backgroundColor=currentColor;
+       };
+       var onPalleteClick =function(){
+         currentColor=this.style.backgroundColor;
+        palletechose.style.backgroundColor=currentColor;
+       }
+
+       for (var i=0; i< clickerButton.length; i++){
+       clickerButton[i].addEventListener("click", onButtonClick);
+     }
+
+     for (var i=0; i< clickerPallete.length; i++){
+     clickerPallete[i].addEventListener("click", onPalleteClick);
+
+   }
+
+   let palletechose=document.createElement('div');
+
+   palletechose.className="chose"
+
+
+   container.appendChild(palletechose);
+   let colorText= document.createElement('h2')
+   colorText.innerText="currentColor"
+
+   container.appendChild(colorText);
+    </script>
+    </body>
+</html>
